@@ -160,10 +160,9 @@ for fold in range(5):
     test_data = kfold_data[fold][2]
     test_label = kfold_label[fold][2]
 
-    if args.dataset not in ['air', 'traffic']:
-        print('Unbalanced ratio of train_data: ', sum(train_label) / len(train_label))
-        print('Unbalanced ratio of valid_data: ', sum(valid_label) / len(valid_label))
-        print('Unbalanced ratio of test_data: ', sum(test_label) / len(test_label))
+    print('Unbalanced ratio of train_data: ', sum(train_label) / len(train_label))
+    print('Unbalanced ratio of valid_data: ', sum(valid_label) / len(valid_label))
+    print('Unbalanced ratio of test_data: ', sum(test_label) / len(test_label))
 
     # Normalization
     writelog(f, 'Normalization')
