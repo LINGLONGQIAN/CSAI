@@ -554,17 +554,14 @@ def training(phase, model, optimizer, criterion, data, args, task, f, tfw, epoch
     eval_x_all = []
     eval_m_all = []
     imp_all = []
-
-    if args.dataset not in ['air', 'traffic']:
-        y_gts = np.array([]).reshape(0)
-        y_preds = np.array([]).reshape(0)
-        y_scores = np.array([]).reshape(0)
+    y_gts = np.array([]).reshape(0)
+    y_preds = np.array([]).reshape(0)
+    y_scores = np.array([]).reshape(0)
 
     # Loop over the minibatch
     for i, xdata in enumerate(data):
         # Define training variables
-        if args.dataset not in ['air', 'traffic']:
-            y = xdata['labels'].to(args.device)
+        y = xdata['labels'].to(args.device)
         eval_x = xdata['evals'].to(args.device)
         eval_m = xdata['eval_masks'].to(args.device)
         
@@ -673,18 +670,15 @@ def evaluate(phase, model, criterion, data, args, task, f, tfw, epoch):
     eval_x_all = []
     eval_m_all = []
     imp_all = []
-
-    if args.dataset not in ['air', 'traffic']:
-        y_gts = np.array([]).reshape(0)
-        y_preds = np.array([]).reshape(0)
-        y_scores = np.array([]).reshape(0)
+    y_gts = np.array([]).reshape(0)
+    y_preds = np.array([]).reshape(0)
+    y_scores = np.array([]).reshape(0)
 
     # Loop over the minibatch
     with torch.no_grad():
         for i, xdata in enumerate(data):
             # xdata = next(iter(data))
-            if args.dataset not in ['air', 'traffic']:
-                y = xdata['labels'].to(args.device)
+            y = xdata['labels'].to(args.device)
             eval_x = xdata['evals'].to(args.device)
             eval_m = xdata['eval_masks'].to(args.device)
 
